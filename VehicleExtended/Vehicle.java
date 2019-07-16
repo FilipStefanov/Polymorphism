@@ -4,14 +4,16 @@ import java.text.DecimalFormat;
 
 public abstract class Vehicle {
 
-    private double fuelQuantity;
-    private double fuelConsumption;
+    protected double fuelQuantity;
+    protected double fuelConsumption;
+    protected double tankCapacity;
 
 
 
-    public Vehicle(double fuelQuantity, double fuelConsumption) {
+    public Vehicle(double fuelQuantity, double fuelConsumption, double tankCapacity) {
         this.fuelQuantity = fuelQuantity;
         this.fuelConsumption = fuelConsumption;
+        this.tankCapacity = tankCapacity;
     }
 
     public String drive(double distance) {
@@ -35,10 +37,20 @@ public abstract class Vehicle {
     }
 
     public void refuel(double liters) {
-       if (liters > 0){
-           this.fuelQuantity += liters;
-       }
+        if (liters <= 0){
+            System.out.println("Fuel must be a positive number");
+            return;
+        }
+
+        double refueledTank = fuelQuantity + liters;
+        if  (refueledTank <= this.tankCapacity){
+            this.fuelQuantity = refueledTank;
+        }else{
+            System.out.println("Cannot fit fuel in tank");
+        }
+
     }
+    public abstract String driveEmpty(double distance);
 
     @Override
     public String toString() {
