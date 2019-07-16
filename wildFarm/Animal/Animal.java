@@ -8,7 +8,7 @@ public abstract class Animal implements AnimalFoodAndSound {
     private Double animalWeight;
     private Integer foodEaten;
 
-    public Animal( String animalType ,String animalName, Double animalWeight) {
+    public Animal(String animalType, String animalName, Double animalWeight) {
         this.animalName = animalName;
         this.animalType = animalType;
         this.animalWeight = animalWeight;

@@ -32,13 +32,11 @@ public class Main {
             String[] foodInformation = (scanner.nextLine().split("\\s+"));
             Food food = food(foodInformation);
 
-
             if (animal == null || food == null){
                 continue;
             }
             animal.makeSound();
             animal.eat(food);
-
             animals.add(animal);
         }
 
@@ -55,7 +53,6 @@ public class Main {
 
         String foodType = foodInformation[0];
         Integer quantity = Integer.parseInt(foodInformation[1]);
-
         Food food = null;
 
         if (foodType.equalsIgnoreCase("Vegetable")) {
